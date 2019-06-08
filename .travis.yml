@@ -1,0 +1,10 @@
+﻿language: csharp
+dotnet: 2.2
+sudo: required
+solution: "./BowlingGame/BowlingGame.sln"
+dist: xenial
+install:
+  - travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./BowlingGame/BowlingGame.sln
+script:
+  - dotnet build ./BowlingGame/BowlingGame.sln
+  - dotnet test ./BowlingGame/BowlingGame.sln
