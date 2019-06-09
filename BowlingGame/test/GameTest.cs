@@ -44,5 +44,15 @@ namespace BowlingGameTest
             Assert.Equal(9, g.ScoreForFrame(1));
             Assert.Equal(18, g.ScoreForFrame(2));
         }
+
+        [Fact]
+        public void TestSimpleSpare()
+        {
+            g.Add(3);
+            g.Add(7);
+            g.Add(3);
+
+            Assert.Equal(13, g.ScoreForFrame(1));
+        }
     }
 }
