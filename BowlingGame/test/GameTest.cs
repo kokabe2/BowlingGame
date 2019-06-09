@@ -31,7 +31,7 @@ namespace BowlingGameTest
             g.Add(4);
 
             Assert.Equal(9, g.Score);
-            Assert.Equal(1, g.CurrentFrame);
+            Assert.Equal(2, g.CurrentFrame);
         }
 
         [Fact]
@@ -45,7 +45,7 @@ namespace BowlingGameTest
             Assert.Equal(18, g.Score);
             Assert.Equal(9, g.ScoreForFrame(1));
             Assert.Equal(18, g.ScoreForFrame(2));
-            Assert.Equal(2, g.CurrentFrame);
+            Assert.Equal(3, g.CurrentFrame);
         }
 
         [Fact]

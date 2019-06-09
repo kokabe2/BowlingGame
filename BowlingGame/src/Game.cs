@@ -19,7 +19,7 @@ namespace BowlingGame
         {
             get;
             private set;
-        } = 0;
+        } = 1;
 
         public void Add(int pins)
         {
@@ -33,11 +33,11 @@ namespace BowlingGame
             if (firstThrow)
             {
                 firstThrow = false;
-                CurrentFrame++;
             }
             else
             {
                 firstThrow = true;
+                CurrentFrame++;
             }
         }
 
