@@ -8,6 +8,7 @@ namespace BowlingGame
     {
         int[] itsThrows = new int[21];
         int itsCurrentThrow = 0;
+        bool firstThrow = true;
 
         public int Score
         {
@@ -16,13 +17,23 @@ namespace BowlingGame
         } = 0;
         public int CurrentFrame
         {
-            get { return 1 + (itsCurrentThrow - 1) / 2; }
-        }
+            get;
+            private set;
+        } = 0;
 
         public void Add(int pins)
         {
             itsThrows[itsCurrentThrow++] = pins;
             Score += pins;
+            if (firstThrow)
+            {
+                firstThrow = false;
+                CurrentFrame++;
+            }
+            else
+            {
+                firstThrow = true;
+            }
         }
 
         public int ScoreForFrame(int theFrame)
