@@ -1,4 +1,4 @@
-// Copyright(c) 2019 Ken Okabe
+﻿// Copyright(c) 2019 Ken Okabe
 // This software is released under the MIT License, see LICENSE.
 using System;
 
@@ -14,6 +14,10 @@ namespace BowlingGame
             get;
             private set;
         } = 0;
+        public int CurrentFrame
+        {
+            get { return 1 + (itsCurrentThrow - 1) / 2; }
+        }
 
         public void Add(int pins)
         {
