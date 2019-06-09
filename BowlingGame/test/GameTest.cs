@@ -8,11 +8,16 @@ namespace BowlingGameTest
 {
     public class GameTest
     {
+        Game g;
+
+        public GameTest()
+        {
+            g = new Game();
+        }
+
         [Fact]
         public void TestOneThrow()
         {
-            Game g = new Game();
-
             g.Add(5);
 
             Assert.Equal(5, g.Score);
@@ -21,8 +26,6 @@ namespace BowlingGameTest
         [Fact]
         public void TestTwoThrowsNoMark()
         {
-            Game g = new Game();
-
             g.Add(5);
             g.Add(4);
 
@@ -32,8 +35,6 @@ namespace BowlingGameTest
         [Fact]
         public void TestFourThrowsNoMark()
         {
-            Game g = new Game();
-
             g.Add(5);
             g.Add(4);
             g.Add(7);
