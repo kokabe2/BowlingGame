@@ -25,6 +25,11 @@ namespace BowlingGame
         {
             itsThrows[itsCurrentThrow++] = pins;
             Score += pins;
+            AdjustCurrentFrame();
+        }
+
+        void AdjustCurrentFrame()
+        {
             if (firstThrow)
             {
                 firstThrow = false;
