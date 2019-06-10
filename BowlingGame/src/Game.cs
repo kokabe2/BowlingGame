@@ -12,9 +12,8 @@ namespace BowlingGame
 
         public int Score
         {
-            get;
-            private set;
-        } = 0;
+            get { return ScoreForFrame(CurrentFrame - 1); }
+        }
         public int CurrentFrame
         {
             get;
@@ -24,7 +23,6 @@ namespace BowlingGame
         public void Add(int pins)
         {
             itsThrows[itsCurrentThrow++] = pins;
-            Score += pins;
             AdjustCurrentFrame();
         }
 
