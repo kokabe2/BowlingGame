@@ -23,14 +23,15 @@ namespace BowlingGame
         public void Add(int pins)
         {
             itsThrows[itsCurrentThrow++] = pins;
-            AdjustCurrentFrame();
+            AdjustCurrentFrame(pins);
         }
 
-        void AdjustCurrentFrame()
+        void AdjustCurrentFrame(int pins)
         {
             if (firstThrow)
             {
-                firstThrow = false;
+                if (pins == 10) CurrentFrame++;
+                else firstThrow = false;
             }
             else
             {
@@ -48,10 +49,17 @@ namespace BowlingGame
                  ++currentFrame)
             {
                 int firstThrow = itsThrows[ball++];
-                int secondThrow = itsThrows[ball++];
-                int frameScore = firstThrow + secondThrow;
-                if (frameScore == 10) score += frameScore + itsThrows[ball];
-                else score += frameScore;
+                if (firstThrow == 10)
+                {
+                    score += 10 + itsThrows[ball] + itsThrows[ball + 1];
+                }
+                else
+                {
+                    int secondThrow = itsThrows[ball++];
+                    int frameScore = firstThrow + secondThrow;
+                    if (frameScore == 10) score += frameScore + itsThrows[ball];
+                    else score += frameScore;
+                }
             }
 
             return score;

@@ -63,5 +63,17 @@ namespace BowlingGameTest
             Assert.Equal(18, g.Score);
             Assert.Equal(3, g.CurrentFrame);
         }
+
+        [Fact]
+        public void TestSimpleStrike()
+        {
+            g.Add(10);
+            g.Add(3);
+            g.Add(6);
+
+            Assert.Equal(19, g.ScoreForFrame(1));
+            Assert.Equal(28, g.Score);
+            Assert.Equal(3, g.CurrentFrame);
+        }
     }
 }
