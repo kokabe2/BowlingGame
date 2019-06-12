@@ -38,6 +38,8 @@ namespace BowlingGame
                 firstThrow = true;
                 CurrentFrame++;
             }
+
+            CurrentFrame = Math.Min(11, CurrentFrame);
         }
 
         public int ScoreForFrame(int theFrame)

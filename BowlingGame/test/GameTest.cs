@@ -75,5 +75,17 @@ namespace BowlingGameTest
             Assert.Equal(28, g.Score);
             Assert.Equal(3, g.CurrentFrame);
         }
+
+        [Fact]
+        public void TestPerfectGame()
+        {
+            for (int i = 0; i < 12; ++i)
+            {
+                g.Add(10);
+            }
+
+            Assert.Equal(300, g.Score);
+            Assert.Equal(11, g.CurrentFrame);
+        }
     }
 }
