@@ -138,5 +138,17 @@ namespace BowlingGameTest
 
             Assert.Equal(299, g.Score);
         }
+
+        [Fact]
+        public void TestTenthFrameSpare()
+        {
+            for (int i = 0; i < 9; ++i)
+                g.Add(10);
+            g.Add(9);
+            g.Add(1);
+            g.Add(1);
+
+            Assert.Equal(270, g.Score);
+        }
     }
 }
