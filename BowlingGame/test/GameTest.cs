@@ -1,4 +1,4 @@
-﻿// Copyright(c) 2019 Ken Okabe
+// Copyright(c) 2019 Ken Okabe
 // This software is released under the MIT License, see LICENSE.
 using System;
 using Xunit;
@@ -101,6 +101,32 @@ namespace BowlingGameTest
             g.Add(10);
 
             Assert.Equal(20, g.Score);
+        }
+
+        [Fact]
+        public void TestSampleGame()
+        {
+            g.Add(1);
+            g.Add(4);
+            g.Add(4);
+            g.Add(5);
+            g.Add(6);
+            g.Add(4);
+            g.Add(5);
+            g.Add(5);
+            g.Add(10);
+            g.Add(0);
+            g.Add(1);
+            g.Add(7);
+            g.Add(3);
+            g.Add(6);
+            g.Add(4);
+            g.Add(10);
+            g.Add(2);
+            g.Add(8);
+            g.Add(6);
+
+            Assert.Equal(133, g.Score);
         }
     }
 }
