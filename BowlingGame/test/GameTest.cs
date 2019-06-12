@@ -87,5 +87,20 @@ namespace BowlingGameTest
             Assert.Equal(300, g.Score);
             Assert.Equal(11, g.CurrentFrame);
         }
+
+        [Fact]
+        public void TestEndOfArray()
+        {
+            for (int i = 0; i < 9; ++i)
+            {
+                g.Add(0);
+                g.Add(0);
+            }
+            g.Add(2);
+            g.Add(8);
+            g.Add(10);
+
+            Assert.Equal(20, g.Score);
+        }
     }
 }
