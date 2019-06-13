@@ -53,9 +53,10 @@ namespace BowlingGame
                  currentFrame < theFrame;
                  ++currentFrame)
             {
-                firstThrow = itsThrows[ball++];
+                firstThrow = itsThrows[ball];
                 if (firstThrow == 10)
                 {
+                    ball++;
                     score += 10 + itsThrows[ball] + itsThrows[ball + 1];
                 }
                 else
@@ -70,11 +71,19 @@ namespace BowlingGame
         int HandleSecondThrow()
         {
             int score = 0;
-            secondThrow = itsThrows[ball++];
+            secondThrow = itsThrows[ball + 1];
 
             int frameScore = firstThrow + secondThrow;
-            if (frameScore == 10) score += frameScore + itsThrows[ball];
-            else score += frameScore;
+            if (frameScore == 10)
+            {
+                ball += 2;
+                score += frameScore + itsThrows[ball];
+            }
+            else
+            {
+                ball += 2;
+                score += frameScore;
+            }
 
             return score;
         }
