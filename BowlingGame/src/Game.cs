@@ -10,8 +10,6 @@ namespace BowlingGame
         int itsCurrentThrow = 0;
         bool firstThrowInFrame = true;
         int ball;
-        int firstThrow;
-        int secondThrow;
 
         public int Score
         {
@@ -53,7 +51,6 @@ namespace BowlingGame
                  currentFrame < theFrame;
                  ++currentFrame)
             {
-                firstThrow = itsThrows[ball];
                 if (Strike())
                 {
                     ball++;
@@ -81,9 +78,6 @@ namespace BowlingGame
         int HandleSecondThrow()
         {
             int score = 0;
-            secondThrow = itsThrows[ball + 1];
-
-            int frameScore = firstThrow + secondThrow;
             if (Spare())
             {
                 ball += 2;
