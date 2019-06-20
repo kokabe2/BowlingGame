@@ -1,4 +1,4 @@
-﻿// Copyright(c) 2019 Ken Okabe
+// Copyright(c) 2019 Ken Okabe
 // This software is released under the MIT License, see LICENSE.
 using System;
 
@@ -84,10 +84,10 @@ namespace BowlingGame
             secondThrow = itsThrows[ball + 1];
 
             int frameScore = firstThrow + secondThrow;
-            if (frameScore == 10)
+            if (Spare())
             {
                 ball += 2;
-                score += frameScore + itsThrows[ball];
+                score += 10 + NextBall();
             }
             else
             {
@@ -96,6 +96,16 @@ namespace BowlingGame
             }
 
             return score;
+        }
+
+        bool Spare()
+        {
+            return (itsThrows[ball] + itsThrows[ball + 1]) == 10;
+        }
+
+        int NextBall()
+        {
+            return itsThrows[ball];
         }
     }
 }
