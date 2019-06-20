@@ -1,4 +1,4 @@
-// Copyright(c) 2019 Ken Okabe
+﻿// Copyright(c) 2019 Ken Okabe
 // This software is released under the MIT License, see LICENSE.
 using System;
 
@@ -91,8 +91,8 @@ namespace BowlingGame
             }
             else
             {
+                score += TwoBallsInFrame();
                 ball += 2;
-                score += frameScore;
             }
 
             return score;
@@ -106,6 +106,11 @@ namespace BowlingGame
         int NextBall()
         {
             return itsThrows[ball];
+        }
+
+        int TwoBallsInFrame()
+        {
+            return itsThrows[ball] + itsThrows[ball + 1];
         }
     }
 }
