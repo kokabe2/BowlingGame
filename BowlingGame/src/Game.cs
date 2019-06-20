@@ -54,10 +54,10 @@ namespace BowlingGame
                  ++currentFrame)
             {
                 firstThrow = itsThrows[ball];
-                if (firstThrow == 10)
+                if (Strike())
                 {
                     ball++;
-                    score += 10 + itsThrows[ball] + itsThrows[ball + 1];
+                    score += 10 + NextTwoBalls();
                 }
                 else
                 {
@@ -66,6 +66,16 @@ namespace BowlingGame
             }
 
             return score;
+        }
+
+        bool Strike()
+        {
+            return itsThrows[ball] == 10;
+        }
+
+        int NextTwoBalls()
+        {
+            return itsThrows[ball] + itsThrows[ball + 1];
         }
 
         int HandleSecondThrow()
