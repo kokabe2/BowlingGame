@@ -56,9 +56,15 @@ namespace BowlingGame
                     ball++;
                     score += 10 + NextTwoBalls();
                 }
+                else if (Spare())
+                {
+                    ball += 2;
+                    score += 10 + NextBall();
+                }
                 else
                 {
-                    score += HandleSecondThrow();
+                    score += TwoBallsInFrame();
+                    ball += 2;
                 }
             }
 
