@@ -81,23 +81,6 @@ namespace BowlingGame
             return itsThrows[ball] + itsThrows[ball + 1];
         }
 
-        int HandleSecondThrow()
-        {
-            int score = 0;
-            if (Spare())
-            {
-                ball += 2;
-                score += 10 + NextBall();
-            }
-            else
-            {
-                score += TwoBallsInFrame();
-                ball += 2;
-            }
-
-            return score;
-        }
-
         bool Spare()
         {
             return (itsThrows[ball] + itsThrows[ball + 1]) == 10;
