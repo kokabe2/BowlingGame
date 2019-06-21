@@ -53,13 +53,13 @@ namespace BowlingGame
             {
                 if (Strike())
                 {
+                    score += 10 + NextTwoBallsForStrike();
                     ball++;
-                    score += 10 + NextTwoBalls();
                 }
                 else if (Spare())
                 {
+                    score += 10 + NextBallForSpare();
                     ball += 2;
-                    score += 10 + NextBall();
                 }
                 else
                 {
@@ -76,9 +76,9 @@ namespace BowlingGame
             return itsThrows[ball] == 10;
         }
 
-        int NextTwoBalls()
+        int NextTwoBallsForStrike()
         {
-            return itsThrows[ball] + itsThrows[ball + 1];
+            return itsThrows[ball + 1] + itsThrows[ball + 2];
         }
 
         bool Spare()
@@ -86,9 +86,9 @@ namespace BowlingGame
             return (itsThrows[ball] + itsThrows[ball + 1]) == 10;
         }
 
-        int NextBall()
+        int NextBallForSpare()
         {
-            return itsThrows[ball];
+            return itsThrows[ball + 2];
         }
 
         int TwoBallsInFrame()
