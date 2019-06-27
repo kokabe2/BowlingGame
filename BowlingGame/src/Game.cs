@@ -29,16 +29,19 @@ namespace BowlingGame
         {
             if (firstThrowInFrame)
             {
-                if (pins == 10) CurrentFrame++;
+                if (pins == 10) AdvanceFrame();
                 else firstThrowInFrame = false;
             }
             else
             {
                 firstThrowInFrame = true;
-                CurrentFrame++;
+                AdvanceFrame();
             }
+        }
 
-            CurrentFrame = Math.Min(11, CurrentFrame);
+        void AdvanceFrame()
+        {
+            CurrentFrame = Math.Min(11, CurrentFrame + 1);
         }
 
         public int ScoreForFrame(int theFrame)
