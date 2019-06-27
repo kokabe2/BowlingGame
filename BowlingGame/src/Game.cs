@@ -6,10 +6,8 @@ namespace BowlingGame
 {
     public class Game
     {
-        int[] itsThrows = new int[21];
-        int itsCurrentThrow = 0;
         bool firstThrowInFrame = true;
-        int ball;
+        Scorer itsScorer = new Scorer();
 
         public int Score
         {
@@ -23,7 +21,7 @@ namespace BowlingGame
 
         public void Add(int pins)
         {
-            itsThrows[itsCurrentThrow++] = pins;
+            itsScorer.AddThrow(pins);
             AdjustCurrentFrame(pins);
         }
 
@@ -45,55 +43,7 @@ namespace BowlingGame
 
         public int ScoreForFrame(int theFrame)
         {
-            ball = 0;
-            int score = 0;
-            for (int currentFrame = 0;
-                 currentFrame < theFrame;
-                 ++currentFrame)
-            {
-                if (Strike())
-                {
-                    score += 10 + NextTwoBallsForStrike();
-                    ball++;
-                }
-                else if (Spare())
-                {
-                    score += 10 + NextBallForSpare();
-                    ball += 2;
-                }
-                else
-                {
-                    score += TwoBallsInFrame();
-                    ball += 2;
-                }
-            }
-
-            return score;
-        }
-
-        bool Strike()
-        {
-            return itsThrows[ball] == 10;
-        }
-
-        int NextTwoBallsForStrike()
-        {
-            return itsThrows[ball + 1] + itsThrows[ball + 2];
-        }
-
-        bool Spare()
-        {
-            return (itsThrows[ball] + itsThrows[ball + 1]) == 10;
-        }
-
-        int NextBallForSpare()
-        {
-            return itsThrows[ball + 2];
-        }
-
-        int TwoBallsInFrame()
-        {
-            return itsThrows[ball] + itsThrows[ball + 1];
+            return itsScorer.ScoreForFrame(theFrame);
         }
     }
 }
