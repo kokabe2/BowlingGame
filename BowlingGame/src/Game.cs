@@ -29,14 +29,24 @@ namespace BowlingGame
         {
             if (firstThrowInFrame)
             {
-                if (pins == 10) AdvanceFrame();
-                else firstThrowInFrame = false;
+                if (!AdjustFrameForStrike(pins)) firstThrowInFrame = false;
             }
             else
             {
                 firstThrowInFrame = true;
                 AdvanceFrame();
             }
+        }
+
+        bool AdjustFrameForStrike(int pins)
+        {
+            if (pins == 10)
+            {
+                AdvanceFrame();
+                return true;
+            }
+
+            return false;
         }
 
         void AdvanceFrame()
